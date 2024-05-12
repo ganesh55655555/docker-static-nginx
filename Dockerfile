@@ -1,6 +1,4 @@
-FROM nginx
-
-RUN mkdir /etc/nginx/logs && touch /etc/nginx/logs/static.log
-
-ADD ./nginx.conf /etc/nginx/conf.d/default.conf
-ADD /src /www
+FROM nginx:latest
+COPY nginx.conf /etc/nginx/nginx.conf
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
